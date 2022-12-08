@@ -13,5 +13,3 @@ MediaPipe - Python API for hand land mark detection. It is a cross-platform, cus
 The CAD Design - https://www.thingiverse.com/thing:1691704
 
 OpenCV - https://github.com/opencv/opencv
-
-DEMO: 
