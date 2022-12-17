@@ -1,7 +1,7 @@
-#AlphaHAnd
+# AlphaHAnd
 This is the final project for the Basics of AI class - COE202.
 
-##Details And Explanation 
+## Details And Explanation 
 AlphaHand - Rock Paper Scissors playing robot.
 
 An AI backed image recognition existence that works with the help of media pipe that tracks the 21 landmarks in the on the players hand and also calculates the angles and distances between the points and the fingers to recognize the form that the user’s hand has taken and recognize accordingly the user's choice.
@@ -10,18 +10,18 @@ The AI opposes the player using a randomly chosen strike of his own that and act
 
 ![AlphaHand](Resources/Pic1.png?raw=true "AlphaHand")
 
-##Hardware Requirenments
+## Hardware Requirenments
 We required a set of electronic modules provided by MODI LUXOROBO (Network Module, Motors, Display Modules), A set of Lego pieces to provide support and structure to the modules and a 3D printed hand parts, steel wires, and fishing wires.
 
 ![HardWare Image](Resources/Hardware_req.png?raw=true "Harwware_req")
 
-##Install all the dependencies
+## Install all the dependencies
 
 ```bash
 conda env create -f environment.yml
 ```
 
-##Refrences
+## Refrences
 
 MODI - Python API for controlling modular electronics, MODI. (https://github.com/LUXROBO/pymodi) 
 
