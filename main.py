@@ -1,8 +1,14 @@
 import random
 import cv2
-import cvzone
-from cvzone.HandTrackingModule import HandDetector
+from HandTrackingModule import HandDetector
 import time
+import cvzone
+from commands import *
+
+bundle = modi.MODI(1)
+motor1 = bundle.motors[0]
+motor2 = bundle.motors[1]
+display = bundle.displays[0]
 
 cap = cv2.VideoCapture(0)
 cap.set(3, 640)
@@ -14,53 +20,6 @@ timer = 0
 stateResult = False
 startGame = False
 scores = [0, 0]  # [AI, Player]
-
-import modi
-# import time
-
-def scissor(motor1, motor2):
-    motor2.first_degree = 30
-    motor1.second_degree = 40
-    time.sleep(2)
-    motor2.first_degree = 0
-    motor1.second_degree = 0
-
-def rock(motor1, motor2):
-    motor2.first_degree = 30
-    motor1.degree = 40, 30
-    time.sleep(2)
-    motor2.first_degree = 0
-    motor1.degree = 0, 0
-
-def paper(motor1, motor2):
-    pass
-
-# if __name__ == "__main__":
-bundle = modi.MODI(1)
-motor1 = bundle.motors[0]
-motor2 = bundle.motors[1]
-display = bundle.displays[0]
-
-#     # inp = "rock"
-#     # inp = "paper"
-#     # inp = "scissor"
-
-#     if inp=="scissor":
-#         display.text = "scissor"
-#         scissor(motor1, motor2)
-#         time.sleep(1)
-#         display.clear()
-#     elif inp=="rock":
-#         display.text = "rock"
-#         rock(motor1, motor2)
-#         time.sleep(1)
-#         display.clear()
-#     else:
-#         display.text("paper")
-#         paper(motor1, motor2)
-#         time.sleep(1)
-#         display.clear()
-
 
 while True:
     imgBG = cv2.imread("Resources/BG.png")
@@ -95,27 +54,12 @@ while True:
                         playerMove = 3 # scisor
 
                     randomNumber = random.randint(1, 3)
-                    
-                    # bundle = modi.MODI(1)
-                    # motor1 = bundle.motors[0]
-                    # motor2 = bundle.motors[1]
-                    # display = bundle.displays[0]
-
-                    if randomNumber==3: #"scissor"
-                        display.text = "scissor"
+                    if randomNumber == 3:
                         scissor(motor1, motor2)
-                        time.sleep(3)
-                        display.clear()
-                    elif randomNumber==1: #"rock":
-                        display.text = "rock"
+                    elif randomNumber == 1:
                         rock(motor1, motor2)
-                        time.sleep(3)
-                        display.clear()
-                    elif randomNumber==2: 
-                        display.text="paper"
+                    elif randomNumber == 2:
                         paper(motor1, motor2)
-                        time.sleep(3)
-                        display.clear()
 
                     imgAI = cv2.imread(f'Resources/{randomNumber}.png', cv2.IMREAD_UNCHANGED)
                     imgBG = cvzone.overlayPNG(imgBG, imgAI, (149, 310))
